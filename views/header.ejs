@@ -1,0 +1,74 @@
+<style>
+    :root {
+        --theme-color: #e52222;
+        --theme-shade-color: #fa5b5b;
+    }
+
+    nav {
+        text-align: center;
+        padding: 14px;
+    }
+
+    nav h2 {
+        margin: 6px 0;
+    }
+
+    nav p {
+        margin: 0;
+    }
+
+    .btn-theme {
+        border-radius: 6px;
+        color: #fff;
+        background-color: var(--theme-color);
+        border: none;
+        padding: 12px 20px;
+        box-shadow: 0 2px 4px 2px rgba(0, 0, 0, 0.1);
+        cursor: pointer;
+        outline: none;
+        font-size: 18px;
+        font-weight: bold;
+        display: block;
+        font-family: inherit;
+    }
+
+    .btn-theme:hover {
+        background-color: var(--theme-shade-color) !important;
+    }
+
+    .btn-theme:active {
+        transform: translateY(1px);
+        box-shadow: 0 1px 4px 2px rgba(0, 0, 0, 0.1);
+    }
+
+    .btn-small {
+        padding: 8px 13px;
+        font-size: 12px;
+    }
+
+    .btn-circle {
+        border-radius: 50%;
+    }
+
+    .spl {
+        background-color:#fff;
+        color: #e52222;
+    }
+
+    .spl:hover {
+        background-color: white !important;
+    }
+</style>
+<nav style="background-color:#f54c4c; ;color: #fff;">
+    <div style="display: flex; align-items: center; justify-content: center;">
+        <img src="https://halanx.com/img/logo_white.png" height="30" alt="">
+        <h2>Halanx</h2>
+    </div>
+    <div>
+        <p>Reinventing Renting</p>
+    </div>
+</nav>
+<div class="search">
+    <input class="search" type="search" placeholder="Search.." id="select_location">
+    <button id="b1" class="btn-theme"><i class="fa fa-search"></i> </button>
+</div>
