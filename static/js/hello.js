@@ -188,7 +188,7 @@
                     console.log(data);
                     data = data.results;
                     $('.boxes').html(' ');
-                    $('.pla').fadeOut();
+                    $('.pla').fadeOut(); 
                     data.forEach(d => {
                         var html = `
                                 <style>#use{display:none!important;} .filter-button {display:block!important;}</style>
