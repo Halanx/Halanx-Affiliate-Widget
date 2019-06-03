@@ -38,9 +38,9 @@ app.get('/', (req, res) => {
 });
 
 app.get('/api',(req,res)=>{
-    if (req.query.lat && req.query.lng) {
-        request(`https://api.halanx.com/homes/houses/?lat=${req.query.lat}&lng=${req.query.lng}`, (err, resp, body) => {
-            // console.log('res',res);
+    if (req.query.lat && req.query.lng && req.query.accomodation_allowed && req.query.accomodation_type) {
+        request(`https://api.halanx.com/homes/houses/?latitude=${req.query.lat}&longitude=${req.query.lng}&accomodation_type=${req.query.accomodation_type}&accomodation_allowed=${req.query.accomodation_allowed}`, (err, resp, body) => {
+            // console.log(req.query);
             body = JSON.parse(body);
             res.send(body);
         })

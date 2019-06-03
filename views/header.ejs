@@ -51,7 +51,7 @@
     }
 
     .spl {
-        background-color:#fff;
+        background-color: #fff;
         color: #e52222;
     }
 
@@ -64,11 +64,31 @@
         <img src="https://halanx.com/img/logo_white.png" height="30" alt="">
         <h2>Halanx</h2>
     </div>
-    <div>
-        <p>Reinventing Renting</p>
+    <div id="use">
+        <p>Rent Rooms, Beds and Houses</p>
     </div>
 </nav>
 <div class="search">
     <input class="search" type="search" placeholder="Search.." id="select_location">
     <button id="b1" class="btn-theme"><i class="fa fa-search"></i> </button>
 </div>
+<div class="filter-button"><i class="fa fa-filter"></i></div>
+<div class="filter-page">
+    <h3 class="text-center">Filters</h3>
+    <div style="display: flex; align-items: center; justify-content: space-around;">
+        <p><input type="radio" name="aa" value="girls"> Girls</p>
+        <p><input type="radio" name="aa" value="boys"> Boys</p>
+        <p><input type="radio" name="aa" value="family"> Family</p>
+    </div>
+    <div style="display: flex; align-items: center; justify-content: space-around;">
+        <p> <input type="radio" name="at" value="shared"> Bed</p>
+        <p><input type="radio" name="at" value="private"> Room</p>
+        <p> <input type="radio" name="at" value="flat"> House</p>
+    </div>
+    <button class="btn-theme apply" style="margin: 0 auto;">Apply</button>
+</div>
+<style>
+    .text-center {
+        text-align: center;
+    }
+</style>
