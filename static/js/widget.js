@@ -3,6 +3,8 @@
     // Localize jQuery variable
     let jQuery;
 
+    const widget_url = "http://localhost:3000/widget";
+
     /******** Load jQuery if not present *********/
     if (window.jQuery === undefined || window.jQuery.fn.jquery !== '3.4.0') {
         let script_tag = document.createElement('script');
@@ -42,7 +44,6 @@
 
     function main1() {
 
-        let widget_url = "http://localhost:3000/";
         fetch(widget_url, {
             headers: {
                 'Content-Type': 'text/html'
@@ -51,7 +52,7 @@
             res.text().then(function (d) {
                 document.getElementById('widget-container').innerHTML = d;
             })
-        })
+        });
 
         // $('#widget-container').html(data);
 
@@ -76,24 +77,24 @@
                 'Get Cashback'
             ];
 
-            let LAT,LNG,AA,AT;
+            let LAT, LNG, AA, AT;
 
             let backgrounds1 = [
-                'http://localhost:3000/img/icon.png',
-                'http://localhost:3000/img/icon.png',
-                'http://localhost:3000/img/icon.png',
-                'http://localhost:3000/img/icon.png',
-                'http://localhost:3000/img/icon.png',
-                'http://localhost:3000/img/icon.png'
-            ]
+                widget_url + '/static/img/icon.png',
+                widget_url + '/static/img/icon.png',
+                widget_url + '/static/img/icon.png',
+                widget_url + '/static/img/icon.png',
+                widget_url + '/static/img/icon.png',
+                widget_url + '/static/img/icon.png'
+            ];
 
             let heading1 = $('.pla .card p');
             let ss1 = $('.pla .card img');
 
-            var count = 0;
+            let count = 0;
             setInterval(function () {
                 console.log(count);
-                if (count == backgrounds1.length - 1) {
+                if (count === backgrounds1.length - 1) {
                     count = 0;
                 } else {
                     count++;
@@ -121,25 +122,25 @@
 
             function initialize() {
                 let input = document.getElementById('select_location');
-                var autocomplete = new google.maps.places.Autocomplete(input);
+                const autocomplete = new google.maps.places.Autocomplete(input);
                 google.maps.event.addListener(autocomplete, 'place_changed', () => {
-                    var place = autocomplete.getPlace();
-                    var lat = place.geometry.location.lat();
-                    var lng = place.geometry.location.lng();
-                    var at = AT || 'flat,shared,private';
-                    var aa = AA || 'girls,boys,family';
+                    const place = autocomplete.getPlace();
+                    const lat = place.geometry.location.lat();
+                    const lng = place.geometry.location.lng();
+                    const at = AT || 'flat,shared,private';
+                    const aa = AA || 'girls,boys,family';
 
                     LAT = lat;
                     LNG = lng;
                     console.log(lat, lng);
                     // window.location.href = `/?lat=${lat}&lng=${lng}`;
-                    $.get(`http://localhost:3000/api?lat=${lat}&lng=${lng}&accomodation_type=${at}&accomodation_allowed=${aa}`, (data) => {
+                    $.get(`${widget_url}/api?lat=${lat}&lng=${lng}&accomodation_type=${at}&accomodation_allowed=${aa}`, (data) => {
                         console.log(data);
                         data = data.results;
                         $('.boxes').html(' ');
                         $('.pla').fadeOut();
                         data.forEach(d => {
-                            var html = `
+                            const html = `
                                 <style>#use{display:none!important;} .filter-button {display:block!important;}</style>
                                 <div class="row" ng-repeat="row in houseRows">
                                     <a href="https://halanx.com/house/${d.id}" target="_blank" style="color: inherit; text-decoration: none" class="box" ng-repeat="h in row">
@@ -175,22 +176,22 @@
             $('.apply').click(() => {
                 $('#halanx_main').css('overflow-y', 'scroll');
                 $('.filter-page').fadeOut(300);
-                var lat = LAT;
-                var lng = LNG;
-                var at = $("input[name='at']:checked").val() || 'flat,shared,private';
-                var aa = $("input[name='aa']:checked").val() || 'girls,boys,family';
+                const lat = LAT;
+                const lng = LNG;
+                const at = $("input[name='at']:checked").val() || 'flat,shared,private';
+                const aa = $("input[name='aa']:checked").val() || 'girls,boys,family';
 
                 AT = at;
                 AA = aa;
 
                 console.log(lat, lng, 2);
-                $.get(`http://localhost:3000/api?lat=${lat}&lng=${lng}&accomodation_type=${at}&accomodation_allowed=${aa}`, (data) => {
+                $.get(`${widget_url}/api?lat=${lat}&lng=${lng}&accomodation_type=${at}&accomodation_allowed=${aa}`, (data) => {
                     console.log(data);
                     data = data.results;
                     $('.boxes').html(' ');
-                    $('.pla').fadeOut(); 
+                    $('.pla').fadeOut();
                     data.forEach(d => {
-                        var html = `
+                        const html = `
                                 <style>#use{display:none!important;} .filter-button {display:block!important;}</style>
                                 <div class="row" ng-repeat="row in houseRows">
                                     <a target="_blank" href="https://halanx.com/house/${d.id}" style="color: inherit; text-decoration: none" class="box" ng-repeat="h in row">
