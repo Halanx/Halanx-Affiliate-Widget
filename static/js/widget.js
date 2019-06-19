@@ -143,7 +143,7 @@
                         data.forEach(d => {
                             const html = `
                                 <style>#use{display:none!important;} .filter-button {display:block!important;}</style>
-                                <div class="row" ng-repeat="row in houseRows">
+                                <div ng-repeat="row in houseRows">
                                     <a href="https://halanx.com/house/${d.id}" target="_blank" style="color: inherit; text-decoration: none" class="box" ng-repeat="h in row">
                                         <div class="upper2">
                                             <div class="upper" style="background-image: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 50%, rgba(34,34,34,1) 100%),url(${d.cover_pic_url }); position:relative; background-size: cover; background-repeat: no-repeat; background-position: center center;">
