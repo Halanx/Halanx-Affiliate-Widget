@@ -3,7 +3,8 @@
     // Localize jQuery variable
     let jQuery;
 
-    const widget_url = "https://affiliate.halanx.com/widget"; //"http://localhost:3000/widget";
+    // const widget_url = "http://localhost:8080/widget"; 
+    const widget_url = "https://affiliate.halanx.com/widget";
 
     /******** Load jQuery if not present *********/
     if (window.jQuery === undefined || window.jQuery.fn.jquery !== '3.4.0') {

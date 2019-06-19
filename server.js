@@ -31,7 +31,7 @@ router.use(function(req, res, next) {
 });
 
 router.get('/', (req, res) => {
-    res.render('index');
+    res.render('index', {loc:req.get('host'), protocol:req.protocol});
 });
 
 const housesListAPIEndpoint = "https://api.halanx.com/homes/houses/";
@@ -58,4 +58,4 @@ router.get('/api/', (req, res) => {
     })
 });
 
-app.listen(3000, () => console.log("Server started at 3000"));
+app.listen(8080, () => console.log("Server started at 3000"));
