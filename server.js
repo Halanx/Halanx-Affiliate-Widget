@@ -28,7 +28,7 @@ router.use(function (req, res, next) {
 });
 
 router.get('/', (req, res) => {
-    res.render('index', {loc:req.get('host'), protocol:req.protocol});
+    res.render('index', {loc:"affiliate.halanx.com", protocol:"https"});
 });
 
 const housesListAPIEndpoint = "https://api.halanx.com/homes/houses/";
