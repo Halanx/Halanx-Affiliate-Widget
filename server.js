@@ -2,13 +2,11 @@ const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
 const ejs = require('ejs');
-const cors = require('cors');
 const request = require('request');
 
 // init
-const app = express();
-const router = express.Router();
-app.use(cors());
+let app = express();
+let router = express.Router();
 
 app.set('view engine', 'ejs');
 app.use('/widget', router);
@@ -23,11 +21,10 @@ app.use(bodyParser.json());
 router.use('/static', express.static(path.join(__dirname, 'static')));
 
 // logger
-router.use(function(req, res, next) {
-  console.log('%s %s %s', req.method, req.url, req.path);
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "X-Requested-With");
-  next();
+router.use(function (req, res, next) {
+    console.log('%s %s %s', req.method, req.url, req.path);
+    res.header("Access-Control-Allow-Headers", "Content-Type, X-Requested-With");
+    next();
 });
 
 router.get('/', (req, res) => {
@@ -52,7 +49,7 @@ router.get('/api/', (req, res) => {
         params['accomodation_type'] = req.query.accomodation_type
     }
 
-    request({url:housesListAPIEndpoint, qs:params}, (err, resp, body) => {
+    request({url: housesListAPIEndpoint, qs: params}, (err, resp, body) => {
         body = JSON.parse(body);
         res.send(body);
     })
